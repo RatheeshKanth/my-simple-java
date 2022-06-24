@@ -1,13 +1,11 @@
-pipeline {
-    agent any
-
+note {
     stages {
         stage('Clone Code') {
             steps {
 		git 'https://github.com/RatheeshKanth/my-simple-java.git'
                		 echo 'Cloning...'
-            }
-        }
+            	     }
+ 	}
        stage('SonarQube analysis') {
     		def scannerHome = tool 'sonarqube';
    		 withSonarQubeEnv('sonarqube') {
