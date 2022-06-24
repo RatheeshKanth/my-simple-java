@@ -2,16 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clone Code') {
             steps {
-                echo 'Building..'
+		git 'https://github.com/RatheeshKanth/my-simple-java.git'
+               		 echo 'Cloning...'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+       stage('SonarQube analysis') {
+    		def scannerHome = tool 'sonarqube';
+   		 withSonarQubeEnv('sonarqube') {
+      		sh "${scannerHome}/bin/sonar-scanner \
+      		-D sonar.login=admin \
+      		-D sonar.password=admin \
+      		-D sonar.projectKey=sonarqube \
+      		-D sonar.exclusions=vendor/**,resources/**,**/*.java \
+      		-D sonar.host.url=http://174.129.179.126:9000/"
+    }
+  }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
