@@ -1,27 +1,11 @@
-note {
-    stages {
-        stage('Clone Code') {
-            steps {
-		git 'https://github.com/RatheeshKanth/my-simple-java.git'
-               		 echo 'Cloning...'
-            	     }
- 	}
-       stage('SonarQube analysis') {
-    		def scannerHome = tool 'sonarqube';
-   		 withSonarQubeEnv('sonarqube') {
-      		sh "${scannerHome}/bin/sonar-scanner \
-      		-D sonar.login=admin \
-      		-D sonar.password=admin123 \
-      		-D sonar.projectKey=sonarqube \
-      		-D sonar.exclusions=vendor/**,resources/**,**/*.java \
-      		-D sonar.host.url=http://174.129.179.126:9000/"
-		echo 'Analysis complete....'
+node {
+  stage('SCM') {
+    git 'https://github.com/RatheeshKanth/my-simple-java.git'
+  }
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube"
     }
   }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
 }
