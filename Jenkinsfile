@@ -13,10 +13,11 @@ pipeline {
    		 withSonarQubeEnv('sonarqube') {
       		sh "${scannerHome}/bin/sonar-scanner \
       		-D sonar.login=admin \
-      		-D sonar.password=admin \
+      		-D sonar.password=admin123 \
       		-D sonar.projectKey=sonarqube \
       		-D sonar.exclusions=vendor/**,resources/**,**/*.java \
       		-D sonar.host.url=http://174.129.179.126:9000/"
+		echo 'Analysis complete....'
     }
   }
         stage('Deploy') {
