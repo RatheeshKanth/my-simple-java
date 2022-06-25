@@ -11,8 +11,8 @@ stage('SonarQube Analysis') {
         -D sonar.login=admin \
         -D sonar.password=admin123 \
         -D sonar.projectKey=my-app \
-        -D sonar.sources=my-app/src/main/ \
-        -D sonar.test=my-app/src/test/ \
+        -D sonar.sources=my-java-app/src/main/ \
+        -D sonar.test=my-java-app/src/test/ \
         -D sonar.exclusions=vendor/**,resources/**,**/*.java \
         -D sonar.java.binaries=**/target/classes \
         -D sonar.host.url=http://54.175.78.57:9000/"
