@@ -10,13 +10,13 @@ stage('SonarQube Analysis') {
       sh """var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarServer/bin/sonar-scanner \
        -D sonar.login=admin \
       -D sonar.password=admin123 \
-      -D sonar.projectBaseDir=/var/jenkins/workspace/my-java-app/java/ \
+      -D sonar.projectBaseDir=var/jenkins_home/workspace/my-java-app/java/ \
         -D sonar.projectKey=my-app \
         -D sonar.sourceEncoding=UTF-8 \
         -D sonar.language=java \
         -D sonar.sources=my-simple-java/java/ \
         -D sonar.tests=my-simple-java/test/ \
-        -D sonar.host.url=http://100.26.192.227:9000/"""
+        -D sonar.host.url=http://54.175.78.57:9000/"""
         }
 }
 }
