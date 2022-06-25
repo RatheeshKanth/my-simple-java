@@ -1,7 +1,7 @@
 node
 {
     stage('clonning from GIT'){
-git branch: 'main', credentialsId: 'GIT_REPO', url: 'https://github.com/devopshint/sonarqu...
+	git 'https://github.com/RatheeshKanth/my-simple-java.git'
      }
 
 stage('SonarQube Analysis') {
