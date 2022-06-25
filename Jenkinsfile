@@ -11,9 +11,10 @@ stage('SonarQube Analysis') {
         -D sonar.login=admin \
         -D sonar.password=admin123 \
         -D sonar.projectKey=my-app \
-        -D sonar.exclusions=vendor/**,resources/**,**/*.java \
+        -D sonar.sources=my-simple-java/src/main/ \
+        -D sonar.tests=my-simple-java/src/test/ \
         -D sonar.host.url=http://54.175.78.57:9000/"
         }
 }
 }
-
+//-D sonar.exclusions=vendor/**,resources/**,**/*.java \
