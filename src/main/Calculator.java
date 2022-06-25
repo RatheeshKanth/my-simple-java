@@ -105,6 +105,11 @@ public class Calculator {
             } else {
                 inText.setText(str2.toString());
             }
+if (str2.toString().equals("")) {
+                inText.setText("0");
+            } else {
+                inText.setText(str2.toString());
+            }
         });
 
         btnMod = initBtn("%", x[2], y[1], event -> {
