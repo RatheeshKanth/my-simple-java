@@ -13,10 +13,10 @@ stage('SonarQube Analysis') {
         -D sonar.projectKey=my-app \
         -D sonar.sources=src/main/ \
         -D sonar.test=src/test/ \
-        -D sonar.exclusions=vendor/**,resources/**,**/*.java \
         -D sonar.java.binaries=**/target/classes \
         -D sonar.host.url=http://54.175.78.57:9000/"
         }
 }
 }
 
+//-D sonar.exclusions=vendor/**,resources/**,**/*.java \
