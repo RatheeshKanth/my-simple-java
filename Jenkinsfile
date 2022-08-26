@@ -16,6 +16,6 @@ node
           -D sonar.exclusions=vendor/**,resources/**,**/*.java \
           -D sonar.host.url=http://54.175.78.57:9000/"
         }
-}
+    }
 }
 
