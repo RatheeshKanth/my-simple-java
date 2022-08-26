@@ -17,5 +17,9 @@ node
           -D sonar.host.url=http://54.175.78.57:9000/"
         }
     }
+    
+    stage('mevan build'){
+    	
+    }
 }
 
